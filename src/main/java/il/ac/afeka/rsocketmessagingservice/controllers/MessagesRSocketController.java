@@ -28,7 +28,7 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.publish:publish-message}")
     public Mono<MessageBoundary> createMessage(@Payload MessageBoundary message) {
-        return null;
+        return messagesService.create(message);
     }
 
     @MessageMapping("${app.rsocket.get-by-ids:get-messages-by-ids}")
