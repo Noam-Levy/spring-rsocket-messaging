@@ -5,8 +5,9 @@ import il.ac.afeka.rsocketmessagingservice.data.MessageEntity;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
+
 public class MessageBoundary {
-    private String id;
+    private String messageId;
     private String summary;
     private String messageType;
     private Date publishedTimestamp;
@@ -16,8 +17,7 @@ public class MessageBoundary {
     public MessageBoundary() {}
 
     public MessageBoundary(MessageEntity entity) {
-        System.out.println(entity.getMessageId());
-        this.setId(entity.getMessageId());
+        this.setMessageId(entity.getMessageId());
         this.setMessageType(entity.getMessageType());
         this.setSummary(entity.getSummary());
         this.setMessageType(messageType);
@@ -29,7 +29,7 @@ public class MessageBoundary {
     // Convert this boundary to a MessageEntity object
     public MessageEntity toEntity() {
         MessageEntity rv = new MessageEntity();
-        rv.setMessageId(this.id);
+        rv.setMessageId(this.messageId);
         rv.setMessageType(this.messageType);
         rv.setSummary(this.summary);
         rv.setPublishedTimestamp(this.publishedTimestamp);
@@ -39,12 +39,12 @@ public class MessageBoundary {
     }
 
     // Getters and Setters
-    public String getId() {
-        return id;
+    public String getMessageId() {
+        return messageId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
     public String getMessageType() {
@@ -89,6 +89,6 @@ public class MessageBoundary {
 
     @Override
     public String toString() {
-        return "MessageBoundary [id=" + id + ", messageType=" + messageType + ", summary=" + summary + ", publishedTimestamp=" + publishedTimestamp + "]";
+        return "MessageBoundary [id=" + messageId + ", messageType=" + messageType + ", summary=" + summary + ", publishedTimestamp=" + publishedTimestamp + "]";
     }
 }

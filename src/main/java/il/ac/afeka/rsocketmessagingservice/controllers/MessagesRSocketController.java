@@ -28,6 +28,7 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.publish:publish-message}")
     public Mono<MessageBoundary> createMessage(@Payload MessageBoundary message) {
+        this.logger.debug("invoking: publish-message");
         return messagesService.create(message);
     }
 

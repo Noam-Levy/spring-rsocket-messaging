@@ -23,13 +23,12 @@ public class MessageServiceImpl implements MessagesService {
 
     @Override
     public Mono<MessageBoundary> create(MessageBoundary messageBoundary) {
-        messageBoundary.setId(null);
+        messageBoundary.setMessageId(null);
         messageBoundary.setPublishedTimestamp(new Date());
 
         return Mono.just(messageBoundary.toEntity())
                 .flatMap(this.messageRepository::save)
-                .map(MessageBoundary::new)
-                .log();
+                .map(MessageBoundary::new);
     }
 
     @Override
