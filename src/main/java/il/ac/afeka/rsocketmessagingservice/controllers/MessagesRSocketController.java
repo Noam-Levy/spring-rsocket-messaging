@@ -23,7 +23,8 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.get-all:get-all-messages}")
     public Flux<MessageBoundary> getAllMessages() {
-        return null;
+         this.logger.debug("invoking: get-all-messages");
+        return messagesService.getAll();
     }
 
     @MessageMapping("${app.rsocket.publish:publish-message}")
@@ -44,6 +45,7 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.delete-all:delete-all-messages}")
     public Mono<Void> deleteAllMessages() {
-        return null;
+        this.logger.debug("invoking: delete-all-messages");
+        return messagesService.deleteAll();
     }
 }
