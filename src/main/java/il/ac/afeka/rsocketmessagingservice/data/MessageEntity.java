@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-@Document(collation = "messages")
+@Document(collection = "messages")
 public class MessageEntity {
     @Id
     private String messageId;
