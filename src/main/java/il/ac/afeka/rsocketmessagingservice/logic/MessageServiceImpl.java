@@ -20,8 +20,7 @@ public class MessageServiceImpl implements MessagesService {
     public Flux<MessageBoundary> getAll() {
         return messageRepository
                 .findAll()
-                .map(MessageBoundary::new)
-                .log();
+                .map(MessageBoundary::new);
     }
 
     @Override
