@@ -16,14 +16,14 @@ import reactor.core.publisher.Mono;
 @Controller
 public class MessagesRSocketController {
     private MessagesService messagesService;
-    private Log logger = LogFactory.getLog(MessagesClientController.class);
+    private Log logger = LogFactory.getLog(MessagesRSocketController.class);
 
     @Autowired
     public void setMessagesService(MessagesService messagesService) { this.messagesService = messagesService; }
 
     @MessageMapping("${app.rsocket.get-all:get-all-messages}")
     public Flux<MessageBoundary> getAllMessages() {
-         this.logger.debug("invoking: get-all-messages");
+        this.logger.debug("invoking: get-all-messages");
         return messagesService.getAll();
     }
 
