@@ -46,7 +46,6 @@ public class MessageServiceImpl implements MessagesService {
     @Override
     public Mono<Void> deleteAll() {
         return this.messageRepository
-                .deleteAll()
-                .log();
+                .deleteAll();
     }
 }
