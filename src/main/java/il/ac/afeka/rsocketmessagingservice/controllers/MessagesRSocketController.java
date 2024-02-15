@@ -23,7 +23,7 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.get-all:get-all-messages}")
     public Flux<MessageBoundary> getAllMessages() {
-         this.logger.debug("invoking: get-all-messages");
+        this.logger.debug("invoking: get-all-messages");
         return messagesService.getAll();
     }
 
