@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 @Controller
 public class MessagesRSocketController {
     private MessagesService messagesService;
-    private Log logger = LogFactory.getLog(MessagesClientController.class);
+    private Log logger = LogFactory.getLog(MessagesRSocketController.class);
 
     @Autowired
     public void setMessagesService(MessagesService messagesService) { this.messagesService = messagesService; }
