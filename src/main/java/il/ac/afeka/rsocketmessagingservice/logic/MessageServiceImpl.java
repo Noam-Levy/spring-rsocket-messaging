@@ -34,8 +34,11 @@ public class MessageServiceImpl implements MessagesService {
     }
 
     @Override
-    public Flux<MessageBoundary> getById(String messageId) {
-        return null;
+    public Mono<MessageBoundary> getById(String messageId) {
+        return this.messageRepository
+                .findById(messageId)
+                .map(MessageBoundary::new)
+                .log();
     }
 
     @Override
