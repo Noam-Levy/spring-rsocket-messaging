@@ -1,5 +1,7 @@
 package il.ac.afeka.rsocketmessagingservice.controllers;
 
+import il.ac.afeka.rsocketmessagingservice.boundaries.ExternalReferenceBoundary;
+import il.ac.afeka.rsocketmessagingservice.boundaries.ExternalReferencesListBoundary;
 import il.ac.afeka.rsocketmessagingservice.boundaries.IdBoundary;
 import il.ac.afeka.rsocketmessagingservice.boundaries.MessageBoundary;
 import jakarta.annotation.PostConstruct;
@@ -83,12 +85,18 @@ public class MessagesClientController {
                 .retrieveFlux(MessageBoundary.class);
     }
 
-    // TODO
-    public Flux<MessageBoundary> getMessagesByExternalReferences() {
+    @PostMapping(
+            path= {"/byReferences/"},
+            consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Flux<MessageBoundary> getMessagesByExternalReferences
+            (@RequestBody ExternalReferenceBoundary[] references) {
+
+        Flux<ExternalReferenceBoundary> refFlux = Flux.fromArray(references);
 
         return this.requester
                 .route(GET_MESSAGES_BY_EXT_REF_ROUTE)
-//                .data()
+                .data(refFlux)
                 .retrieveFlux(MessageBoundary.class);
     }
 

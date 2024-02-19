@@ -42,8 +42,12 @@ public class MessageServiceImpl implements MessagesService {
     }
 
     @Override
-    public Flux<MessageBoundary> getByExternalReference(ExternalReferenceBoundary reference) {
-        return null;
+    public Flux<MessageBoundary> getByExternalReference(Flux<ExternalReferenceBoundary> externalReferences) {
+        return externalReferences
+                .map(ExternalReferenceBoundary::toEntity)
+                .flatMap(messageRepository::findByExternalReferences)
+                .map(MessageBoundary::new)
+                .log();
     }
 
     @Override

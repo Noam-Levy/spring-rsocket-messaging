@@ -9,6 +9,6 @@ public interface MessagesService {
     Flux<MessageBoundary> getAll();
     Mono<MessageBoundary> create(MessageBoundary messageBoundary);
     Mono<MessageBoundary> getById(String messageId);
-    Flux<MessageBoundary> getByExternalReference(ExternalReferenceBoundary reference);
+    Flux<MessageBoundary> getByExternalReference(Flux<ExternalReferenceBoundary> reference);
     Mono<Void> deleteAll();
 }

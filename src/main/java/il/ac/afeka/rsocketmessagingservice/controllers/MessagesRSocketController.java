@@ -33,9 +33,9 @@ public class MessagesRSocketController {
         return messagesService.create(message);
     }
 
-    @MessageMapping("${app.rsocket.get-by-ids:get-messages-by-ids-channel}")
+    @MessageMapping("${app.rsocket.get-by-ids:get-messages-by-ids}")
     public Flux<MessageBoundary> getMessagesByIDs(Flux<IdBoundary> ids) {
-        this.logger.debug("invoking: get-messages-by-ids-channel");
+        this.logger.debug("invoking: get-messages-by-ids");
         return ids
                 .flatMap(id->messagesService.getById(id.getId()));
     }
@@ -43,7 +43,7 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.get-by-ext-ref:get-messages-by-external-references}")
     public Flux<MessageBoundary> getMessagesByReferences(Flux<ExternalReferenceBoundary> references) {
-        return null;
+        return messagesService.getByExternalReference(references);
     }
 
     @MessageMapping("${app.rsocket.delete-all:delete-all-messages}")
