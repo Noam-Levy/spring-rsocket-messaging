@@ -1,16 +1,13 @@
 package il.ac.afeka.rsocketmessagingservice.boundaries;
 
-import il.ac.afeka.rsocketmessagingservice.data.ExternalReference;
-
 public class ExternalReferenceBoundary {
 	private String service;
 	private String externalServiceId;
-	public ExternalReferenceBoundary() {
-	}
+	public ExternalReferenceBoundary() {}
 
-	public ExternalReferenceBoundary(ExternalReference externalReferences) {
-		this.service = externalReferences.getService();
-		this.externalServiceId = externalReferences.getExternalServiceId();
+	public ExternalReferenceBoundary(String service, String externalServiceId) {
+		this.service = service;
+		this.externalServiceId = externalServiceId;
 	}
 
 	public String getService() {
@@ -35,8 +32,5 @@ public class ExternalReferenceBoundary {
 				"service='" + service + '\'' +
 				", externalServiceId='" + externalServiceId + '\'' +
 				'}';
-	}
-	public static String toEntity(ExternalReferenceBoundary externalReference) {
-		return externalReference.getService() + ":" + externalReference.getExternalServiceId();
 	}
 }

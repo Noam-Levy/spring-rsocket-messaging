@@ -1,17 +1,18 @@
 package il.ac.afeka.rsocketmessagingservice.boundaries;
 
-import il.ac.afeka.rsocketmessagingservice.data.ExternalReference;
 import il.ac.afeka.rsocketmessagingservice.data.MessageEntity;
+import il.ac.afeka.rsocketmessagingservice.utils.ExternalReferencesConvertor;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MessageBoundary {
     private String messageId;
     private String summary;
     private String messageType;
     private Date publishedTimestamp;
-    private Set<ExternalReference> externalReferences;
+    private Set<ExternalReferenceBoundary> externalReferences;
     private Map<String, Object> messageDetails;
 
     public MessageBoundary() {}
@@ -22,7 +23,11 @@ public class MessageBoundary {
         this.setSummary(entity.getSummary());
         this.setMessageType(messageType);
         this.setPublishedTimestamp(entity.getPublishedTimestamp());
-        this.setExternalReferences(entity.getExternalReferences());
+        this.setExternalReferences(entity
+                                    .getExternalReferences()
+                                    .stream()
+                                    .map(ExternalReferencesConvertor::convertToBoundary)
+                                    .collect(Collectors.toSet()));
         this.setMessageDetails(entity.getMessageDetails());
     }
 
@@ -33,7 +38,10 @@ public class MessageBoundary {
         rv.setMessageType(this.messageType);
         rv.setSummary(this.summary);
         rv.setPublishedTimestamp(this.publishedTimestamp);
-        rv.setExternalReferences(this.externalReferences);
+        rv.setExternalReferences(this.externalReferences
+                                     .stream()
+                                     .map(ExternalReferencesConvertor::convertToEntity)
+                                     .collect(Collectors.toSet()));
         rv.setMessageDetails(this.messageDetails);
         return rv;
     }
@@ -71,11 +79,11 @@ public class MessageBoundary {
         this.publishedTimestamp = publishedTimestamp;
     }
 
-    public Set<ExternalReference> getExternalReferences() {
+    public Set<ExternalReferenceBoundary> getExternalReferences() {
         return externalReferences;
     }
 
-    public void setExternalReferences(Set<ExternalReference> externalReferences) {
+    public void setExternalReferences(Set<ExternalReferenceBoundary> externalReferences) {
         this.externalReferences = externalReferences;
     }
 
