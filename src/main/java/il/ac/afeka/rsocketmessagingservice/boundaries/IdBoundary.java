@@ -1,27 +1,27 @@
 package il.ac.afeka.rsocketmessagingservice.boundaries;
 
 public class IdBoundary {
-	private String id;
+	private String messageId;
 
 	public IdBoundary() {
 	}
 
-	public IdBoundary(String id) {
-		this.id = id;
+	public IdBoundary(String messageId) {
+		this.messageId = messageId;
 	}
 
-	public String getId() {
-		return id;
+	public String getMessageId() {
+		return messageId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setMessageId(String messageId) {
+		this.messageId = messageId;
 	}
 
 	@Override
 	public String toString() {
 		return "IdBoundary{" +
-				"id='" + id + '\'' +
+				"messageId='" + messageId + '\'' +
 				'}';
 	}
 }
