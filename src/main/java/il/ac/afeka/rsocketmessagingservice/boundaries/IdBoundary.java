@@ -17,4 +17,11 @@ public class IdBoundary {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "IdBoundary{" +
+				"id='" + id + '\'' +
+				'}';
+	}
 }

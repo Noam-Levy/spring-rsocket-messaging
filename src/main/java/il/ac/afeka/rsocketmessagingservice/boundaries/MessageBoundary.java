@@ -2,15 +2,16 @@ package il.ac.afeka.rsocketmessagingservice.boundaries;
 
 import il.ac.afeka.rsocketmessagingservice.data.MessageEntity;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MessageBoundary {
     private String messageId;
     private String summary;
     private String messageType;
     private Date publishedTimestamp;
-    private List<ExternalReferenceBoundary> externalReferences;
+    private Set<ExternalReferenceBoundary> externalReferences;
     private Map<String, Object> messageDetails;
 
     public MessageBoundary() {}
@@ -24,7 +25,7 @@ public class MessageBoundary {
         this.setExternalReferences(entity.getExternalReferences()
                                     .stream()
                                     .map(ExternalReferenceBoundary::new)
-                                    .toList());
+                                    .collect(Collectors.toSet()));
         this.setMessageDetails(entity.getMessageDetails());
     }
 
@@ -38,7 +39,7 @@ public class MessageBoundary {
         rv.setExternalReferences(this.getExternalReferences()
                                      .stream()
                                      .map(ExternalReferenceBoundary::toEntity)
-                                     .toList());
+                                     .collect(Collectors.toSet()));
         rv.setMessageDetails(this.getMessageDetails());
         return rv;
     }
@@ -76,11 +77,11 @@ public class MessageBoundary {
         this.publishedTimestamp = publishedTimestamp;
     }
 
-    public List<ExternalReferenceBoundary> getExternalReferences() {
+    public Set<ExternalReferenceBoundary> getExternalReferences() {
         return externalReferences;
     }
 
-    public void setExternalReferences(List<ExternalReferenceBoundary> externalReferences) {
+    public void setExternalReferences(Set<ExternalReferenceBoundary> externalReferences) {
         this.externalReferences = externalReferences;
     }
 

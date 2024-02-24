@@ -43,7 +43,8 @@ public class MessagesRSocketController {
 
     @MessageMapping("${app.rsocket.get-by-ext-ref:get-messages-by-external-references}")
     public Flux<MessageBoundary> getMessagesByReferences(Flux<ExternalReferenceBoundary> references) {
-        return messagesService.getByExternalReference(references);
+        return messagesService.getByExternalReferences(references)
+                .log();
     }
 
     @MessageMapping("${app.rsocket.delete-all:delete-all-messages}")
