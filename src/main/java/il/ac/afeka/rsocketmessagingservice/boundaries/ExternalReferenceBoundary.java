@@ -20,7 +20,6 @@ public class ExternalReferenceBoundary {
 		return rv;
 	}
 
-
 	public String getService() {
 		return service;
 	}
@@ -36,7 +35,6 @@ public class ExternalReferenceBoundary {
 	public void setExternalServiceId(String externalServiceId) {
 		this.externalServiceId = externalServiceId;
 	}
-
 
 	@Override
 	public String toString() {

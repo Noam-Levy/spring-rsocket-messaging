@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-
 @Document(collection = "messages")
 public class MessageEntity {
     @Id
@@ -28,7 +27,6 @@ public class MessageEntity {
         this.externalReferences = externalReferences;
         this.messageDetails = messageDetails;
     }
-
 
     public String getMessageId() {
         return messageId;

@@ -1,10 +1,8 @@
 package il.ac.afeka.rsocketmessagingservice.data;
 
 public class ExternalReferenceEntity {
-
 	private String service;
 	private String externalServiceId;
-
 	public ExternalReferenceEntity() {
 	}
 

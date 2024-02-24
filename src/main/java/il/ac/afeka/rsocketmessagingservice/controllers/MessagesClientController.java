@@ -84,7 +84,7 @@ public class MessagesClientController {
                 .retrieveFlux(MessageBoundary.class);
     }
 
-    @GetMapping(
+    @PostMapping(
             path= {"/byReferences"},
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
