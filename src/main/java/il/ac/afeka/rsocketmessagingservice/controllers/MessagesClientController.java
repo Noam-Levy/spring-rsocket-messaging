@@ -85,7 +85,7 @@ public class MessagesClientController {
     }
 
     @GetMapping(
-            path= {"/byReferences/"},
+            path= {"/byReferences"},
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
     public Flux<MessageBoundary> getMessagesByExternalReferences

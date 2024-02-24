@@ -3,8 +3,9 @@ package il.ac.afeka.rsocketmessagingservice.data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 
 @Document(collection = "messages")
 public class MessageEntity {
@@ -13,13 +14,13 @@ public class MessageEntity {
     private String messageType;
     private String summary;
     private Date publishedTimestamp;
-    private Set<String> externalReferences;
+    private List<ExternalReferenceEntity> externalReferences;
     private Map<String, Object> messageDetails;
 
     public MessageEntity()  {}
 
     public MessageEntity(String messageId, String messageType, String summary, Date publishedTimestamp,
-                         Set<String> externalReferences, Map<String, Object> messageDetails) {
+                         List<ExternalReferenceEntity> externalReferences, Map<String, Object> messageDetails) {
         this.messageId = messageId;
         this.messageType = messageType;
         this.summary = summary;
@@ -27,6 +28,7 @@ public class MessageEntity {
         this.externalReferences = externalReferences;
         this.messageDetails = messageDetails;
     }
+
 
     public String getMessageId() {
         return messageId;
@@ -44,7 +46,7 @@ public class MessageEntity {
         return publishedTimestamp;
     }
 
-    public Set<String> getExternalReferences() {
+    public List<ExternalReferenceEntity> getExternalReferences() {
         return externalReferences;
     }
 
@@ -68,7 +70,7 @@ public class MessageEntity {
         this.publishedTimestamp = publishedTimestamp;
     }
 
-    public void setExternalReferences(Set<String> externalReferences) {
+    public void setExternalReferences(List<ExternalReferenceEntity> externalReferences) {
         this.externalReferences = externalReferences;
     }
 

@@ -3,7 +3,6 @@ package il.ac.afeka.rsocketmessagingservice.logic;
 import il.ac.afeka.rsocketmessagingservice.boundaries.ExternalReferenceBoundary;
 import il.ac.afeka.rsocketmessagingservice.boundaries.MessageBoundary;
 import il.ac.afeka.rsocketmessagingservice.repositories.MessageRepository;
-import il.ac.afeka.rsocketmessagingservice.utils.ExternalReferencesConvertor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -45,7 +44,7 @@ public class MessageServiceImpl implements MessagesService {
     @Override
     public Flux<MessageBoundary> getByExternalReference(Flux<ExternalReferenceBoundary> externalReferences) {
         return externalReferences
-                .map(ExternalReferencesConvertor::convertToEntity)
+                .map(ExternalReferenceBoundary::toEntity)
                 .flatMap(messageRepository::findByExternalReferences)
                 .map(MessageBoundary::new)
                 .log();
