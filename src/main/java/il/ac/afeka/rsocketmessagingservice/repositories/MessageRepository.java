@@ -5,6 +5,8 @@ import il.ac.afeka.rsocketmessagingservice.data.MessageEntity;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 
+import java.util.List;
+
 public interface MessageRepository extends ReactiveMongoRepository<MessageEntity, String> {
-	Flux<MessageEntity> findByExternalReference(ExternalReferenceEntity reference);
+	Flux<MessageEntity> findAllByExternalReferencesIn(List<ExternalReferenceEntity> reference);
 }

@@ -76,7 +76,7 @@ public class MessagesClientController {
     public Flux<MessageBoundary> getMessagesByIDs(@PathVariable String ids) {
         Flux<IdBoundary> idFlux = Flux
                 .fromArray(ids.split(","))
-                .map(id -> new IdBoundary(id));
+                .map(IdBoundary::new);
 
         return this.requester
                 .route(GET_MESSAGES_BY_ID_ROUTE)
