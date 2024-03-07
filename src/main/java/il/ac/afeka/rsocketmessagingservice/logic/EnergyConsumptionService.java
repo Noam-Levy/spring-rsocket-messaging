@@ -154,4 +154,34 @@ public class EnergyConsumptionService implements EnergyConsumptionsService {
 
         return Flux.just(consumptionWarning);
     }
+
+//    public float calculateTotalLiveConsumption (MessageBoundary messageBoundary) {
+//        //need to change to deviceBoundary
+//        float totalConsumption = 0;
+//        messageBoundary.getMessageDetails().
+//        for (){
+//            totalConsumption +=
+//        }
+//        return totalConsumption;
+//    }
+//
+//    public float calculateConsumption(MessageBoundary messageBoundary, int time) {
+//
+//        float deviceConsumption = messageBoundary.getMessageDetails().;
+//
+//        for() {
+//
+//            float totalTime = calculateTotalTime(messageBoundary);
+//            deviceConsumption = "currentPowerInWatts" * totalTime *60;
+//
+//        }
+//
+//        return deviceConsumption;
+//    }
+
+    public float calculateTotalTime(MessageBoundary messageBoundary) {
+        //to checks when the device was on and then off, and when the device is on and it still on (make the calculate need to be with the current hour)
+        float totalTime = 0;
+        return totalTime;
+    }
 }
