@@ -1,6 +1,6 @@
-package il.ac.afeka.rsocketmessagingservice.repositories;
+package il.ac.afeka.energymonitoringservice.repositories;
 
-import il.ac.afeka.rsocketmessagingservice.data.MessageEntity;
+import il.ac.afeka.energymonitoringservice.data.MessageEntity;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 

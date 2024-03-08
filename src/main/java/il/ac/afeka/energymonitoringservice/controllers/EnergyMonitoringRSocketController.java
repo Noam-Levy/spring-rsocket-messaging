@@ -1,12 +1,11 @@
-package il.ac.afeka.rsocketmessagingservice.controllers;
+package il.ac.afeka.energymonitoringservice.controllers;
 
-import il.ac.afeka.rsocketmessagingservice.boundaries.MessageBoundary;
-import il.ac.afeka.rsocketmessagingservice.logic.EnergyConsumptionsService;
+import il.ac.afeka.energymonitoringservice.boundaries.MessageBoundary;
+import il.ac.afeka.energymonitoringservice.logic.EnergyConsumptionsService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

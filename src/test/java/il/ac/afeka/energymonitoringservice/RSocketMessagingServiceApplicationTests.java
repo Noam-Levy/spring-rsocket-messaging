@@ -1,4 +1,4 @@
-package il.ac.afeka.rsocketmessagingservice;
+package il.ac.afeka.energymonitoringservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

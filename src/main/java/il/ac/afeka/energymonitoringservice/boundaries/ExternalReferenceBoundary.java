@@ -1,6 +1,6 @@
-package il.ac.afeka.rsocketmessagingservice.boundaries;
+package il.ac.afeka.energymonitoringservice.boundaries;
 
-import il.ac.afeka.rsocketmessagingservice.data.ExternalReferenceEntity;
+import il.ac.afeka.energymonitoringservice.data.ExternalReferenceEntity;
 
 public class ExternalReferenceBoundary {
 	private String service;

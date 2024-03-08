@@ -1,4 +1,4 @@
-package il.ac.afeka.rsocketmessagingservice.data;
+package il.ac.afeka.energymonitoringservice.data;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

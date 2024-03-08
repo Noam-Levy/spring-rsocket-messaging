@@ -1,7 +1,6 @@
-package il.ac.afeka.rsocketmessagingservice.controllers;
+package il.ac.afeka.energymonitoringservice.controllers;
 
-import il.ac.afeka.rsocketmessagingservice.boundaries.ExternalReferenceBoundary;
-import il.ac.afeka.rsocketmessagingservice.boundaries.MessageBoundary;
+import il.ac.afeka.energymonitoringservice.boundaries.MessageBoundary;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

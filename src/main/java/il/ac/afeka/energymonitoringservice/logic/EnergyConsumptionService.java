@@ -1,8 +1,8 @@
-package il.ac.afeka.rsocketmessagingservice.logic;
+package il.ac.afeka.energymonitoringservice.logic;
 
-import il.ac.afeka.rsocketmessagingservice.boundaries.ExternalReferenceBoundary;
-import il.ac.afeka.rsocketmessagingservice.boundaries.MessageBoundary;
-import il.ac.afeka.rsocketmessagingservice.repositories.EnergyMonitoringRepository;
+import il.ac.afeka.energymonitoringservice.boundaries.ExternalReferenceBoundary;
+import il.ac.afeka.energymonitoringservice.boundaries.MessageBoundary;
+import il.ac.afeka.energymonitoringservice.repositories.EnergyMonitoringRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

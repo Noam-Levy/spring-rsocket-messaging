@@ -1,6 +1,6 @@
-package il.ac.afeka.rsocketmessagingservice.logic;
+package il.ac.afeka.energymonitoringservice.logic;
 
-import il.ac.afeka.rsocketmessagingservice.boundaries.MessageBoundary;
+import il.ac.afeka.energymonitoringservice.boundaries.MessageBoundary;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
