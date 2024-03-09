@@ -11,7 +11,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Controller
 public class EnergyMonitoringRSocketController {
@@ -24,19 +23,19 @@ public class EnergyMonitoringRSocketController {
     @MessageMapping("${app.rsocket.event.consumption.live}")
     public Mono<MessageBoundary> publishLiveConsumption() {
         this.logger.debug("live consumption request received");
-        return energyService.getLiveConsumptionSummery();
+        return energyService.getLiveConsumptionSummary();
     }
 
     @MessageMapping("${app.rsocket.event.consumption.summary}")
     public Mono<MessageBoundary> publishConsumptionSummeryByDay() {
-        // TODO: change to daily and monthly kafka event
+        // TODO: change to daily kafka event
         this.logger.debug("publishing consumption summary");
         return energyService.getDailySummary(LocalDateTime.now());
     }
 
     @MessageMapping("${app.rsocket.event.consumption.summary}")
     public Mono<MessageBoundary> publishConsumptionSummeryByMonth() {
-        // TODO: change to daily and monthly kafka event
+        // TODO: change to monthly kafka event
         this.logger.debug("publishing consumption summary");
         return energyService.getConsumptionSummaryByMonth(LocalDateTime.now());
     }

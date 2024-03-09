@@ -6,12 +6,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public interface EnergyConsumptionService {
-    Mono<MessageBoundary> getLiveConsumption();
     Mono<Void> handleDeviceEvent(DeviceBoundary deviceBoundary);
-    Mono<MessageBoundary> getLiveConsumptionSummery();
+    Mono<MessageBoundary> getLiveConsumptionSummary();
     Mono<MessageBoundary> getDailySummary(LocalDateTime day);
     Mono<MessageBoundary> getConsumptionSummaryByMonth(LocalDateTime date);
     Flux<MessageBoundary> generateConsumptionWarning(float currentConsumption);
